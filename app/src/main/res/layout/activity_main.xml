@@ -20,7 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:layout_weight="0.96"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true">
 
         <TextView
             android:id="@+id/rutaActual"

@@ -35,8 +35,8 @@ public class MainActivity extends ListActivity {
 
         carpetaActual = (TextView) findViewById(R.id.rutaActual);
 
-        //directorioRaiz = Environment.getExternalStorageDirectory().getPath();
-       directorioRaiz=  Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+        directorioRaiz = Environment.getExternalStorageDirectory().getPath();
+       //directorioRaiz=  Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
 
         verArchivosDirectorio(directorioRaiz);
         Toast.makeText(this, directorioRaiz, Toast.LENGTH_LONG).show();
@@ -52,7 +52,7 @@ public class MainActivity extends ListActivity {
 
 
             File[] listaArchivos = directorioActual.listFiles();
-
+            //Toast.makeText(this,"El número de archivos es: " + directorioActual.listFiles().length,Toast.LENGTH_LONG).show();
             int x = 0;
 
             // Si no es nuestro directorio raiz creamos un elemento que nos
@@ -65,6 +65,7 @@ public class MainActivity extends ListActivity {
             }
 
             // Almacenamos las rutas de todos los archivos y carpetas del directorio
+            //Toast.makeText(this,"Lista archivos es: " + listaArchivos.length,Toast.LENGTH_LONG).show();
             for (File archivo : listaArchivos) {
                 listaRutasArchivos.add(archivo.getPath());
             }
@@ -98,6 +99,7 @@ public class MainActivity extends ListActivity {
 
             // Creamos el adaptador y le asignamos la lista de los nombres de los
             // archivos y el layout para los elementos de la lista
+            //Toast.makeText(this,"Lista Nombres archivos es: " + listaNombresArchivos.size(),Toast.LENGTH_LONG).show();
             adaptador = new ArrayAdapter<String>(this,R.layout.text_view_lista_archivos, listaNombresArchivos);
             setListAdapter(adaptador);
 
@@ -141,6 +143,9 @@ public class MainActivity extends ListActivity {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            //Intent intent = new Intent(Intent.ACTION_VIEW);
+            //intent.setDataAndType(Uri.parse("file:/" + archivo.getAbsolutePath()), "text/html");
+            //startActivity(intent);
         }
     }
 }
