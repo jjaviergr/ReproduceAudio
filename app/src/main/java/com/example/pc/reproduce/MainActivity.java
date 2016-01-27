@@ -130,7 +130,7 @@ public class MainActivity extends ListActivity {
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 ///Toast.makeText(this, archivo.getAbsolutePath(),  Toast.LENGTH_LONG).show();
-                intent.setData(Uri.parse("file:/" + archivo.getAbsolutePath()));
+                //intent.setData(Uri.parse("file:/" + archivo.getAbsolutePath()));
                 intent.setDataAndType(Uri.parse("file:/" + archivo.getAbsolutePath()), "audio/mp3");
                 startActivity(intent);
 
